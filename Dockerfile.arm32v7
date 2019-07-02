@@ -9,5 +9,6 @@ ADD qemu-arm-static /usr/bin
 RUN apt-get update -y && \
     apt-get install git nodejs npm wget -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN npm config set unsafe-perm true
 RUN npm install --global @deptagency/octopus
 RUN which octopus
