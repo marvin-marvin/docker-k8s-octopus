@@ -1,16 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "9"
-    description: WAN octopus
+    description: LAN octopus
   creationTimestamp: null
   generation: 1
   labels:
     k8s-app: octopus
-    location: wan
+    location: lan
   name: octopus
-  selfLink: /apis/extensions/v1beta1/namespaces/lan/deployments/octopus
+  selfLink: /apis/apps/v1/namespaces/lan/deployments/octopus
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -18,7 +18,7 @@ spec:
   selector:
     matchLabels:
       k8s-app: octopus
-      location: wan
+      location: lan
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -27,11 +27,11 @@ spec:
   template:
     metadata:
       annotations:
-        description: WAN octopus
+        description: LAN octopus
       creationTimestamp: null
       labels:
         k8s-app: octopus
-        location: wan
+        location: lan
       name: octopus
     spec:
       containers:
@@ -58,7 +58,7 @@ spec:
       dnsPolicy: ClusterFirst
       hostNetwork: false
       nodeSelector:
-        location: wan
+        location: lan
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
