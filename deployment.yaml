@@ -41,6 +41,7 @@ spec:
         volumeMounts:
         - mountPath: /etc/cron.d
           name: k8s-octopus
+          subPath: octopus
         resources: {}
         securityContext:
           privileged: false
